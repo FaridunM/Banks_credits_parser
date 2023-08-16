@@ -1,0 +1,85 @@
+{
+    "humo": {
+		"creditsTitles": ["consumer", "start_business", "mortgage", "education", "agricultural", "livestock", "orzu"],
+        "consumer": "https://humo.tj/ru/personal/loans/potrebitelskiy-kredit/",
+	    "start_business": "https://humo.tj/ru/personal/loans/start-biznes/",
+		"consumerAndBusinessPrompts": {
+			"title": "#mainh1",
+			"description": "#mainBody p",
+			"collateral": "#mainBody p",
+			"amount": "#mainBody p",
+			"loanPeriod": "#mainBody p",
+			"loanTerms": "#mainBody ul",
+			"needDocuments": "#mainBody ul"
+		},
+	    "mortgage": "https://humo.tj/ru/personal/loans/ipoteka/",
+		"mortgagePrompts": {
+			"title": "#mainh1",
+			"description": "#mainBody p",
+			"collateral": "#mainBody p",
+			"amount": "#mainBody p",
+			"interestRate": "#mainBody p",
+			"loanPeriod": "#mainBody p",
+			"initialPayment": "#mainBody p",
+			"loanTerms": "#mainBody p",
+			"needDocuments": "#mainBody ul"
+		},
+	    "education": "https://humo.tj/ru/personal/loans/kredit-takhsil/",
+		"educationPrompts": {
+			"title": "#mainh1",
+			"currency": "#mainBody p",
+			"amount": "#mainBody ul",
+			"loanPeriod": "#mainBody",
+			"gracePeriod": "#mainBody",
+			"loanTerms": "#mainBody ul",
+			"needDocuments": "#mainBody ul"
+		},
+	    "agricultural":  "https://humo.tj/ru/personal/loans/selskokhozyaystvennyy-kredit/",
+	    "livestock": "https://humo.tj/ru/personal/loans/kredit-na-zhivotnovodstvo/",
+		"agriculturalAndLivestockPrompts": {
+			"title": "#mainh1",
+			"description": "#mainBody",
+			"landingMethodology": "#mainBody",
+			"collateral": "#mainBody ul",
+			"amount": "#mainBody ul",
+			"loanPeriod": "#mainBody p",
+			"loanTerms": "#mainBody ul",
+			"needDocuments": "#mainBody ul"
+		},
+	    "orzu": "https://orzu.humo.tj/"
+    },
+	"eskhata": {
+		"creditsTitles": ["multi_purpose_consumer", "express", "hunarkhoi_mardumi", "imkon", "car", "manzili"],
+		"commonUrl": "https://eskhata.com/individuals/lending/lending_types/",
+		"multi_purpose_consumer": "#product-47",
+		"multiPurposeConsumerPrompts": {
+			"title": "h2",
+			"description": "div",
+			"purposeAmountLoanPeriod": "div",
+			"interestRateNeedDocuments": "div ul",
+			"Collateral": "div"
+		},
+		"express": "#product-6129",
+		"hunarkhoi_mardumi": "#product-4551",
+		"car": "#product-2012",
+		"promptsForExpressHunarkhoiMardumiCar": {
+			"title": "h2",
+			"description": "div",
+			"purpose": "div",
+			"amount": "div ul",
+			"currency": "div ul",
+			"loanPeriod": "div ul",
+			"interestRate": "div ul",
+			"collateral": "div ul",
+			"needDocuments": "div ul"
+		},
+		"manzili": "#product-1549",
+		"manziliPrompts": {
+			"title": "h2",
+			"description": "div p font",
+			"purpose": "div",
+			"additionalField": "div",
+			"needDocuments": "div ul"
+		}
+	}
+}
