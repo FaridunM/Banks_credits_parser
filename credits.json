@@ -49,7 +49,7 @@
 	    "orzu": "https://orzu.humo.tj/"
     },
 	"eskhata": {
-		"creditsTitles": ["multi_purpose_consumer", "express", "hunarkhoi_mardumi", "imkon", "car", "manzili"],
+		"creditsTitles": ["multi_purpose_consumer", "express", "hunarkhoi_mardumi", "car", "manzili"],
 		"commonUrl": "https://eskhata.com/individuals/lending/lending_types/",
 		"multi_purpose_consumer": "#product-47",
 		"multiPurposeConsumerPrompts": {
