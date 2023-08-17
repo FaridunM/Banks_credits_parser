@@ -1,17 +1,18 @@
 package router
 
 import (
+	"net/http"
+
 	handler "github.com/FaridunM/Banks_credits_parser/api"
 	"github.com/FaridunM/Banks_credits_parser/pkg/middleware"
-	"net/http"
 
 	"github.com/gorilla/mux"
 	"go.uber.org/fx"
 )
 
-func Router(h *handler.Handler) (router *mux.Router) {
+func Router(h *handler.Handler, mw *middleware.MWProvider) (router *mux.Router) {
 	router = mux.NewRouter().PathPrefix("/api").Subrouter()
-	router.Use(middleware.CorsMW(router))
+	router.Use(mw.CorsMW(router))
 	router.NotFoundHandler = http.HandlerFunc(h.Handle404)
 	router.MethodNotAllowedHandler = http.HandlerFunc(h.Handle405)
 
