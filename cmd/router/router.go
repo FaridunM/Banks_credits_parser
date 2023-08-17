@@ -17,7 +17,7 @@ func Router(h *handler.Handler, mw *middleware.MWProvider) (router *mux.Router) 
 	router.MethodNotAllowedHandler = http.HandlerFunc(h.Handle405)
 
 	router.HandleFunc("/ping", h.Pong).Methods("GET", "OPTIONS")
-	// router.HandleFunc("/getGredits", h.GetCredits).Methods("GET")
+	router.HandleFunc("/getCredits", h.GetCredits).Methods("GET")
 	router.HandleFunc("/getCreditsBy/{bank:[A-Za-z -]+}", h.GetCreditsBy).Methods("GET")
 	router.HandleFunc("/getCredit/{bank:[A-Za-z -]+}/{credit_type}", h.GetCredit).Methods("GET")
 

@@ -1,12 +1,14 @@
 package handler
 
 import (
-	"github.com/FaridunM/Banks_credits_parser/pkg/gateway"
-	"github.com/FaridunM/Banks_credits_parser/pkg/structs"
-	"github.com/FaridunM/Banks_credits_parser/pkg/utils"
 	"fmt"
 	"net/http"
 	"regexp"
+	"strings"
+
+	"github.com/FaridunM/Banks_credits_parser/pkg/gateway"
+	"github.com/FaridunM/Banks_credits_parser/pkg/structs"
+	"github.com/FaridunM/Banks_credits_parser/pkg/utils"
 
 	"github.com/gorilla/mux"
 )
@@ -25,11 +27,11 @@ func (h *Handler) Handle405(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Sorry, method not allowed.")
 }
 
-// func (h *Handler) GetCredits(w http.ResponseWriter, r *http.Request) {
-// 	log.Println("Eskhata Credits:", h.credits.Eskhata.CreditsTitles)
-// 	log.Println("Humo Credits:", h.credits.Humo.CreditsTitles)
-// 	w.Write([]byte("GetCredits"))
-// }
+func (h *Handler) GetCredits(w http.ResponseWriter, r *http.Request) {
+	humoTitles := fmt.Sprintf(`"%v"`, strings.Join(h.credits.Humo.CreditsTitles, `", "`))
+	eskhataTitles := fmt.Sprintf(`"%v"`, strings.Join(h.credits.Eskhata.CreditsTitles, `", "`))
+	fmt.Fprintf(w, "{%q: {%v},\n%q: {%v}}", "humo", humoTitles, "eskhata", eskhataTitles)
+}
 
 func (h *Handler) GetCreditsBy(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
@@ -49,14 +51,11 @@ func (h *Handler) GetCreditsBy(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for _, title := range credits {
-		titles += `"` + title + `", `
-	}
+	titles = fmt.Sprintf(`"%v"`, strings.Join(credits, `", "`))
 	w.Write([]byte(fmt.Sprintf("{%v}", titles)))
 }
 
 func (h *Handler) GetCredit(w http.ResponseWriter, r *http.Request) {
-	// fmt.Println("h.credits.Humo -", h.credits.Humo)
 	vars := mux.Vars(r)
 	bank := vars["bank"]
 	creditType := vars["credit_type"]
